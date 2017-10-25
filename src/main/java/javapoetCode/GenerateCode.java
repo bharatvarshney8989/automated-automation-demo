@@ -17,6 +17,7 @@ import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeSpec.Builder;
 
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.response.Response;
@@ -100,8 +101,8 @@ public class GenerateCode {
 
 	private static MethodSpec generateExecuteRequest() {
 		return MethodSpec.methodBuilder("executeRequest").addModifiers(Modifier.PRIVATE).returns(void.class)
-				.addStatement("apiResponse = $T().spec(requestSpecification).get()",
-						ClassName.get("io.restassured.RestAssured", "given"))
+				.addStatement("apiResponse = $T.given().spec(requestSpecification).get()",
+						ParameterizedTypeName.get(RestAssured.class))
 				.build();
 	}
 
