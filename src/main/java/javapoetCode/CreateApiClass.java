@@ -3,6 +3,9 @@ package javapoetCode;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.lang.model.element.Modifier;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.JavaFile;
@@ -18,9 +21,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 public class CreateApiClass {
-
+	
+	private final static Logger LOGGER = Logger.getLogger(CreateApiClass.class.getName());
 	public static void generateApiClass(String outputDirectory) throws IOException {
-
+		LOGGER.log(Level.INFO, "Inside CreateApiClass -Starting code generation for GetUserLoginApi.java file.");
 		Builder classBuilder = TypeSpec.classBuilder("GetUserLoginApi").addModifiers(Modifier.PUBLIC)
 				.addField(String.class, "baseURI")
 				.addField(FieldSpec.builder(String.class, "basePath").addModifiers(Modifier.PUBLIC)
@@ -48,6 +52,7 @@ public class CreateApiClass {
 		TypeSpec build = classBuilder.build();
 		JavaFile javaFile = JavaFile.builder("api.user.login", build).build();
 		javaFile.writeTo(new File(outputDirectory + "/main/java"));
+		LOGGER.log(Level.INFO, "Completed code generation for GetUserLoginApi.java file.");
 	}
 
 	private static MethodSpec createConsturctor() {

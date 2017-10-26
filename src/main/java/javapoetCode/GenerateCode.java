@@ -1,15 +1,18 @@
 package javapoetCode;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GenerateCode {
-	public static void main(String[] args) throws IOException {
-		GenerateCode obj = new GenerateCode();
-		obj.generateCode();
-	}
+	private final static Logger LOGGER = Logger.getLogger(GenerateCode.class.getName());
+
 	public void generateCode() throws IOException{
-		CreateApiClass.generateApiClass("./output");
-		CreateTestScript.generateTestCase("./output");
+		LOGGER.log(Level.INFO, "Inside GenerateCode - Starting code generation");
+		String outputDirectory = System.getProperty("user.home").replace("\\", "/")+"/Desktop";
+		CreateApiClass.generateApiClass(outputDirectory);
+		CreateTestScript.generateTestCase(outputDirectory);
+		LOGGER.log(Level.INFO, "Completed code generation.");
 	}
 
 }
