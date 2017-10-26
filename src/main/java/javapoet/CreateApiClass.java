@@ -1,4 +1,4 @@
-package javapoetCode;
+package javapoet;
 
 import java.io.File;
 import java.io.IOException;
