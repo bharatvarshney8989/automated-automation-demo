@@ -26,7 +26,6 @@ public class Controller extends AnchorPane implements Initializable {
     private AnchorPane mainwindow;
     @FXML
     private Button btnInspect;
-
     @FXML
     private TextField txtSwagger;
 
@@ -55,7 +54,7 @@ public class Controller extends AnchorPane implements Initializable {
                     setupCustomTooltipBehavior(100,10000,100);
                     Tooltip tooltip = new Tooltip();
                     tooltip.setText("Click to check out the Swagger link entered in above Text box");
-                    Tooltip.install(txtSwagger,tooltip);
+                    Tooltip.install(btnInspect,tooltip);
                 }
         );
     }
