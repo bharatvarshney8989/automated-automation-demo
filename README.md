@@ -8,14 +8,14 @@ The purpose of this project is to illustrate the concept of Automated Automation
 3. TestNG - Testing Framework
 
 ## Directory structure of project:
-  src
-    - main -> java -> api.user.login: contain the java file which create api request, execute the request and validate the api response.
-    - main -> java -> controller : contain the Controller class which contains definitions for all action mentioned inside .fxml file.
-    - main -> java -> view : contain the java file to start the application
-    - main -> javapoet : contains the java file which are javapoet scripts to write the .java file.
-    - main -> resources : contain the .fxml file used by JavaFX 
-  src -> test -> java : Testscript to test the api.
-  pom.xml - Maven's POM file used for build operations
+  * src
+    * main -> java -> api.user.login: contain the java file which create api request, execute the request and validate the api response.
+    * main -> java -> controller : contain the Controller class which contains definitions for all action mentioned inside .fxml file.
+    * main -> java -> view : contain the java file to start the application
+    * main -> javapoet : contains the java file which are javapoet scripts to write the .java file.
+    * main -> resources : contain the .fxml file used by JavaFX 
+  * src -> test -> java : Testscript to test the api.
+  * pom.xml - Maven's POM file used for build operations
   
 ## How to Run ?
 main() method of the view.Main class starts the application
